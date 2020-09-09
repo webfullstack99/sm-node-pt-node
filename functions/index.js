@@ -1,11 +1,12 @@
+const functions = require('firebase-functions');
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const expressLayouts = require('express-ejs-layouts');
-const mongoose = require('mongoose');
+//const expressLayouts = require('express-ejs-layouts');
+//const mongoose = require('mongoose');
 
 const app = express();
 
@@ -61,4 +62,9 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
-module.exports = app;
+//module.exports = app;
+
+// // Create and Deploy Your First Cloud Functions
+// // https://firebase.google.com/docs/functions/write-firebase-functions
+//
+exports.app = functions.https.onRequest(app);
